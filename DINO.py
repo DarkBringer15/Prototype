@@ -40,14 +40,12 @@ for score, label, box in zip(results[0]["scores"], results[0]["labels"], results
     width = x_max - x_min
     height = y_max - y_min
 
-    # Buat kotak (bounding box)
     rect = patches.Rectangle(
         (x_min, y_min), width, height,
         linewidth=2, edgecolor="lime", facecolor="none"
     )
     ax.add_patch(rect)
 
-    # Tambahkan label dan skor
     label_text = f"{label} {score:.2f}"
     ax.text(
         x_min, y_min - 5, label_text,
